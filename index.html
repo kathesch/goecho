@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon" type="image/png">
+    <title>_</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <form hx-post="/title" hx-target="title" hx-on::after-request=" if(event.detail.successful) this.reset()">
+        <input type="text" name="title">
+        <button>Submit</button>
+    </form>
+</body>
+<script>
+    const element = document.getElementsByTagName('input')[0]
+
+    document.addEventListener('load', (event) => {
+        element.focus()
+    })
+    document.addEventListener('click', (event) => {
+        element.focus()
+    })
+</script>
+
+</html>
